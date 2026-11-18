@@ -1,0 +1,54 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><style>
+html,body{margin:0}
+body{width:960px;height:288px;overflow:hidden;background:var(--paper)}
+svg{display:block}
+.ink{fill:var(--ink)}.accent{fill:var(--accent)}.deep{fill:var(--paper-deep)}.grey{fill:var(--grey)}
+.name{font:500 60px/.95 var(--font-mono);fill:var(--ink);letter-spacing:-.02em}
+.tag{font:400 14px var(--font-sans);fill:var(--grey)}
+</style></head>
+<body>
+<svg viewBox="0 0 960 288" width="960" height="288" role="img" aria-label="presentation-pixelated">
+<!-- blocks: paper-deep 512x96, ink 128x96, accent 224x96, grey 96x96 as one top band; name beneath at 60px mono (22 letters, too wide for the 440px zone)
+     arrangement: a strip of unequal bands bleeding off the top and both sides, like a status bar at the head of a terminal
+     pattern: a grid of 30 square pixels climbing in steps on the paper-deep band, because the system says "every corner, mark and line end is square" and draws its lines stepped
+     steps and radii: radius-none everywhere; squares 16px (twice chart-dot) on a 20px pitch (space-20), so chart-gap 4 apart; band height 96; pattern in grey with accent caps -->
+<rect class="deep" x="0" y="0" width="512" height="96"/>
+<rect class="ink" x="512" y="0" width="128" height="96"/>
+<rect class="accent" x="640" y="0" width="224" height="96"/>
+<rect class="grey" x="864" y="0" width="96" height="96"/>
+<rect class="accent" x="136" y="70" width="16" height="16"/>
+<rect class="accent" x="156" y="70" width="16" height="16"/>
+<rect class="grey" x="176" y="70" width="16" height="16"/>
+<rect class="accent" x="176" y="50" width="16" height="16"/>
+<rect class="accent" x="196" y="70" width="16" height="16"/>
+<rect class="grey" x="216" y="70" width="16" height="16"/>
+<rect class="accent" x="216" y="50" width="16" height="16"/>
+<rect class="grey" x="236" y="70" width="16" height="16"/>
+<rect class="grey" x="236" y="50" width="16" height="16"/>
+<rect class="accent" x="236" y="30" width="16" height="16"/>
+<rect class="grey" x="256" y="70" width="16" height="16"/>
+<rect class="accent" x="256" y="50" width="16" height="16"/>
+<rect class="grey" x="276" y="70" width="16" height="16"/>
+<rect class="grey" x="276" y="50" width="16" height="16"/>
+<rect class="accent" x="276" y="30" width="16" height="16"/>
+<rect class="grey" x="296" y="70" width="16" height="16"/>
+<rect class="grey" x="296" y="50" width="16" height="16"/>
+<rect class="grey" x="296" y="30" width="16" height="16"/>
+<rect class="accent" x="296" y="10" width="16" height="16"/>
+<rect class="grey" x="316" y="70" width="16" height="16"/>
+<rect class="grey" x="316" y="50" width="16" height="16"/>
+<rect class="accent" x="316" y="30" width="16" height="16"/>
+<rect class="grey" x="336" y="70" width="16" height="16"/>
+<rect class="grey" x="336" y="50" width="16" height="16"/>
+<rect class="grey" x="336" y="30" width="16" height="16"/>
+<rect class="accent" x="336" y="10" width="16" height="16"/>
+<rect class="grey" x="356" y="70" width="16" height="16"/>
+<rect class="grey" x="356" y="50" width="16" height="16"/>
+<rect class="grey" x="356" y="30" width="16" height="16"/>
+<rect class="accent" x="356" y="10" width="16" height="16"/>
+<text class="name" x="32" y="190">presentation-pixelated</text>
+<text class="tag" x="32" y="232">Terminal-style slides: mono titles, square marks, one oxblood accent.</text>
+</svg>
+</body></html>
