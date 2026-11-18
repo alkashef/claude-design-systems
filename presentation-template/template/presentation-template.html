@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Presentation Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --ink:#1f2a33;
+  --deep:#141b21;
+  --panel:#1b252d;
+  --cream:#faf6ec;
+  --paper:#fffdf7;
+  --sand:#e4dac3;
+  --sand-deep:#d8cdb4;
+  --slate:#4a5560;
+  --muted:#7d8791;
+  --mist:#cfc8b6;
+  --soft:#b8b3a4;
+  --yolk:#f2b632;
+  --yolk-edge:#f2d27a;
+  --burnt:#a94f0c;
+  --yolk-tint:#fcefc7;
+  --burnt-tint:#f8dfd0;
+  --ink-tint:#dde7ee;
+  --line:#faf6ec29;
+  --space-6:6px;
+  --space-16:16px;
+  --space-28:28px;
+  --space-40:40px;
+  --margin-x:96px;
+  --margin-top:56px;
+  --margin-bottom:64px;
+  --margin-cover:128px;
+  --radius-sm:8px;
+  --radius-md:16px;
+  --radius-chip:40px;
+  --radius-pill:256px;
+  --font-sans:"DM Sans", Arial, sans-serif;
+  --font-mono:"JetBrains Mono", "Courier New", monospace;
+}
+/* Slide layouts for the 1920 x 1080 stage. Every value reads a token from tokens.css. */
+.slide{position:relative;width:1920px;height:1080px;overflow:hidden;display:flex;flex-direction:column;box-sizing:border-box;font-family:var(--font-sans);color:var(--ink);background:var(--cream);line-height:1.4}
+.slide *{box-sizing:border-box}
+.slide p,.slide h1,.slide h2,.slide h3,.slide ul,.slide ol{margin:0}
+.slide a{color:var(--burnt);text-decoration:underline;text-underline-offset:4px}
+.slide b{font-weight:700}
+
+/* shared text */
+.sl-pad{padding:var(--margin-top) var(--margin-x) var(--margin-bottom);gap:var(--space-16)}
+.sl-kicker{font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--burnt)}
+.sl-title{font-size:56px;font-weight:700;line-height:1.1;color:var(--ink)}
+.sl-lead{font-size:33px;font-weight:600;line-height:1.3;margin-top:var(--space-6);color:var(--ink)}
+.sl-accent{color:var(--burnt)}
+
+/* title, section and closing slides: ink ground */
+.sl-dark{background:var(--ink);color:var(--cream);justify-content:center;padding:var(--margin-cover);gap:36px}
+.sl-dark .sl-kicker{color:var(--yolk)}
+.sl-display{font-size:96px;font-weight:700;line-height:1.1;color:var(--cream);max-width:1100px}
+.sl-sub{font-size:36px;line-height:1.35;color:var(--mist);max-width:1100px}
+.sl-by{font-size:28px;line-height:1.3;color:var(--mist)}
+.sl-by b{font-weight:600;color:var(--cream)}
+.sl-cover{padding-bottom:160px}
+.sl-disc{position:absolute;border-radius:var(--radius-pill)}
+.sl-disc.big{left:1380px;top:320px;width:440px;height:440px;background:var(--cream)}
+.sl-disc.small{left:1520px;top:460px;width:160px;height:160px;background:var(--yolk)}
+.sl-stat{font-size:220px;font-weight:700;line-height:1;color:var(--yolk)}
+
+/* numbered rows */
+.sl-rows{display:flex;flex-direction:column;gap:var(--space-16);flex:1;margin-top:10px}
+.sl-row{display:flex;flex-direction:row;align-items:center;gap:var(--space-28);flex:1;padding:12px var(--space-40);background:var(--paper);border:1px solid var(--sand);border-radius:var(--radius-md)}
+.sl-badge{width:64px;height:64px;flex:none;display:flex;align-items:center;justify-content:center;background:var(--yolk);border-radius:var(--radius-pill);font-size:30px;font-weight:700;color:var(--ink)}
+.sl-row-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--space-6)}
+.sl-row-title{font-size:40px;font-weight:700;line-height:1.2;color:var(--ink)}
+.sl-row-text{font-size:28px;line-height:1.35;color:var(--muted)}
+.sl-rows.compact .sl-row{padding:12px 36px}
+.sl-rows.compact .sl-badge{width:56px;height:56px;font-size:26px}
+.sl-rows.compact .sl-row-text{font-size:26px;color:var(--slate)}
+
+/* cards and closing band */
+.sl-cols{display:flex;flex-direction:row;gap:var(--space-40);align-items:stretch;flex:1;margin-top:10px}
+.sl-card{display:flex;flex-direction:column;flex:1;gap:30px;padding:36px 44px;background:var(--paper);border:1px solid var(--sand);border-radius:var(--radius-md)}
+.sl-card h3{font-size:46px;font-weight:700;line-height:1.2;color:var(--ink)}
+.sl-card ul{padding-left:38px;list-style:disc;display:flex;flex-direction:column;gap:30px}
+.sl-card li{padding-left:4px;font-size:35px;line-height:1.4;color:var(--slate)}
+.sl-band{display:flex;flex-direction:column;justify-content:center;padding:26px 44px;background:var(--ink);border-radius:var(--radius-md)}
+.sl-band p{font-size:38px;font-weight:700;line-height:1.3;color:var(--yolk)}
+.sl-band .sl-accent{color:var(--cream)}
+
+/* step slide: header chip, flow of three cards, note rows */
+.sl-step{padding:40px 64px 44px;gap:14px}
+.sl-head{display:flex;flex-direction:row;align-items:flex-end;justify-content:space-between;gap:32px}
+.sl-head > div{display:flex;flex-direction:column;gap:var(--space-6)}
+.sl-chip{padding:8px 20px;font-size:22px;font-weight:600;color:var(--ink);background:var(--yolk-tint);border:1px solid var(--yolk-edge);border-radius:var(--radius-chip);white-space:nowrap}
+.sl-flow{display:flex;flex-direction:row;align-items:stretch;gap:20px;flex:1;margin:12px 0}
+.sl-flow .sl-card{gap:16px;padding:32px 36px}
+.sl-flow .sl-card h3{font-size:40px}
+.sl-flow .sl-card p{font-size:30px;line-height:1.4;color:var(--slate)}
+.sl-arrow{align-self:center;flex:none;width:56px;height:56px;background:var(--burnt);clip-path:polygon(0 25%,60% 25%,60% 0,100% 50%,60% 100%,60% 75%,0 75%)}
+.sl-tag{display:flex;flex-direction:row;align-items:center;gap:20px}
+.sl-tag svg{flex:none;display:block}
+.sl-note{display:flex;flex-direction:column;flex:1;padding:12px 24px;font-size:22px;line-height:1.4;color:var(--ink);border-left:8px solid var(--yolk);background:var(--yolk-tint);border-radius:var(--radius-sm)}
+.sl-note.burnt{background:var(--burnt-tint);border-left-color:var(--burnt)}
+.sl-note.ink{background:var(--ink-tint);border-left-color:var(--ink)}
+.sl-note p{font-size:22px;line-height:1.4}
+/* Presenter chrome: dark contents panel and bottom bar around the cream 1920x1080 stage. */
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--deep);color:var(--cream);font-family:var(--font-sans);font-size:16px;line-height:1.4;
+  padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px));overflow:hidden;color-scheme:dark}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:3px solid var(--yolk);outline-offset:2px}
+.app{height:100%;display:flex;flex-direction:column;gap:12px;padding-block:12px;position:relative}
+.main{flex:1;min-height:0;display:flex;gap:12px;position:relative}
+
+.toc{width:300px;flex:0 0 300px;background:var(--panel);border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.toc[hidden]{display:none}
+.toc-head{display:flex;align-items:center;justify-content:space-between;padding:14px 14px 10px 18px;border-bottom:1px solid var(--line)}
+.toc-head h2{margin:0;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:9px;border:1px solid transparent;background:transparent}
+.icon-btn:hover{background:rgba(250,246,236,.08)}
+.toc-list{overflow:auto;padding:8px 10px 14px;display:flex;flex-direction:column;gap:2px}
+.toc-group{margin:14px 8px 6px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.toc-group:first-child{margin-top:6px}
+.toc-item{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:start;text-align:left;width:100%;padding:9px 10px;border-radius:10px;border:1px solid transparent;background:transparent}
+.toc-item:hover{background:rgba(250,246,236,.07)}
+.toc-item .n{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;font-size:14px;font-weight:700;border:1.5px solid var(--line);color:var(--soft)}
+.toc-item .t{display:flex;flex-direction:column;gap:1px;min-width:0}
+.toc-item .l{font-size:15.5px;font-weight:600;line-height:1.25}
+.toc-item .s{font-size:13px;color:var(--soft);line-height:1.3}
+.toc-item.done .n{background:rgba(242,182,50,.22);border-color:rgba(242,182,50,.5);color:var(--yolk)}
+.toc-item[aria-current="true"]{background:rgba(242,182,50,.14);border-color:rgba(242,182,50,.55)}
+.toc-item[aria-current="true"] .n{background:var(--yolk);border-color:var(--yolk);color:var(--ink)}
+
+.stage{flex:1;min-width:0;min-height:0;display:flex;align-items:center;justify-content:center;background:#0e1317;border:1px solid var(--line);border-radius:14px;overflow:hidden;position:relative}
+.frame{position:relative;overflow:hidden;border-radius:6px;box-shadow:0 10px 40px rgba(0,0,0,.45);flex:none}
+.slides{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0}
+.slides > .slide{position:absolute;left:0;top:0;opacity:0;visibility:hidden;transition:opacity .22s ease,visibility 0s linear .22s}
+.slides > .slide.on{opacity:1;visibility:visible;transition:opacity .22s ease,visibility 0s}
+
+.bar{flex:0 0 auto;display:grid;grid-template-columns:auto auto minmax(0,1fr) auto auto auto;grid-template-areas:"toc back prog next edit fs";align-items:center;gap:10px;
+  background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
+.bar .b-toc{grid-area:toc}.bar .b-back{grid-area:back}.bar .b-next{grid-area:next}.bar .b-edit{grid-area:edit}.bar .b-fs{grid-area:fs}
+.progress{grid-area:prog;min-width:0;display:flex;flex-direction:row;align-items:center;gap:14px;padding-inline:6px}
+.track{flex:1;min-width:60px;height:10px;border-radius:5px;background:rgba(250,246,236,.16);position:relative;cursor:pointer}
+.track::before{content:"";position:absolute;inset:-12px 0}
+.track:hover{background:rgba(250,246,236,.26)}
+.fill{display:block;height:100%;border-radius:5px;background:var(--yolk);transition:width .25s ease}
+.pct{flex:none;min-width:3.2em;text-align:right;font-size:15px;font-weight:600;color:var(--cream);font-variant-numeric:tabular-nums}
+.btn{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:11px;border:1px solid var(--line);background:rgba(250,246,236,.06);font-weight:600;font-size:15px}
+.btn:hover{background:rgba(250,246,236,.14)}
+.btn.primary{background:var(--yolk);border-color:var(--yolk);color:var(--ink)}
+.btn.primary:hover{background:#f7c554}
+.btn[aria-pressed="true"]{background:var(--yolk);border-color:var(--yolk);color:var(--ink)}
+.btn:disabled{opacity:.35;cursor:default}
+.b-toc,.b-back,.b-next,.b-edit,.b-fs{padding:0;width:52px;justify-content:center}
+.btn svg,.icon-btn svg{width:20px;height:20px;flex:none}
+
+/* edit mode */
+.edit-tools{position:absolute;top:12px;right:12px;z-index:5;display:flex;gap:8px}
+.edit-tools[hidden]{display:none}
+.edit-tools .btn{height:38px;background:var(--panel)}
+.editing .slides{cursor:text}
+.editing .slides .slide :is(h1,h2,h3,p,li,span,b,a):hover{outline:2px dashed rgba(242,182,50,.7);outline-offset:3px}
+.editing .slides .slide :focus{outline:3px solid var(--yolk);outline-offset:3px}
+
+@media (max-width:900px){
+  .toc{position:absolute;z-index:10;left:0;top:0;bottom:0;width:min(320px,88%);box-shadow:0 14px 50px rgba(0,0,0,.6)}
+  .bar{grid-template-columns:auto 1fr auto auto auto;grid-template-areas:"toc back next edit fs" "prog prog prog prog prog"}
+}
+@media (prefers-reduced-motion:reduce){.slides > .slide,.slides > .slide.on,.fill{transition:none}}
+
+/* print: one slide per page */
+@media print{
+  @page{size:1920px 1080px;margin:0}
+  html,body{height:auto;overflow:visible;background:#fff;padding:0}
+  .toc,.bar,.edit-tools{display:none!important}
+  .app,.main,.stage{display:block;height:auto;padding:0;border:0;border-radius:0;background:none;overflow:visible;position:static}
+  .frame{width:1920px!important;height:auto!important;box-shadow:none;border-radius:0;overflow:visible;position:static}
+  .slides{position:static;transform:none!important;width:1920px;height:auto}
+  .slides > .slide{position:relative;opacity:1;visibility:visible;break-after:page;transition:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <div class="main" id="main">
+    <aside class="toc" id="toc" aria-label="Contents">
+      <div class="toc-head">
+        <h2>Contents</h2>
+        <button class="icon-btn" id="tocFold" type="button" aria-label="Fold contents" title="Fold contents (T)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+      </div>
+      <nav class="toc-list" id="tocList"></nav>
+    </aside>
+    <section class="stage" id="stage" aria-label="Slide">
+      <div class="edit-tools" id="editTools" hidden>
+        <button class="btn" id="dupBtn" type="button">Duplicate slide</button>
+        <button class="btn" id="delBtn" type="button">Delete slide</button>
+        <button class="btn primary" id="saveBtn" type="button">Save HTML</button>
+      </div>
+      <div class="frame" id="frame">
+        <div class="slides" id="slides">
+<section class="slide sl-dark sl-cover" data-toc="Title" data-layout="TitleSlide">
+  <div class="sl-disc big"></div>
+  <div class="sl-disc small"></div>
+  <p class="sl-kicker">Series or event name</p>
+  <h1 class="sl-display">Presentation title goes here</h1>
+  <p class="sl-sub">One sentence that says what the audience will take away.</p>
+  <p class="sl-by"><b>Presenter name</b> · Role · Date</p>
+</section>
+<section class="slide sl-dark" data-layout="SectionSlide">
+  <p class="sl-stat">01</p>
+  <h2 class="sl-display">Section title</h2>
+  <p class="sl-sub">One line that sets up the slides in this section.</p>
+</section>
+<section class="slide sl-pad" data-layout="NumberedRows">
+  <p class="sl-kicker">Context label</p>
+  <h2 class="sl-title">Numbered rows</h2>
+  <div class="sl-rows">
+    <div class="sl-row"><div class="sl-badge">1</div><div class="sl-row-body"><p class="sl-row-title">First point, in a few words</p><p class="sl-row-text">One supporting sentence that gives the evidence or the reason.</p></div></div>
+    <div class="sl-row"><div class="sl-badge">2</div><div class="sl-row-body"><p class="sl-row-title">Second point, in a few words</p><p class="sl-row-text">One supporting sentence that gives the evidence or the reason.</p></div></div>
+    <div class="sl-row"><div class="sl-badge">3</div><div class="sl-row-body"><p class="sl-row-title">Third point, in a few words</p><p class="sl-row-text">One supporting sentence that gives the evidence or the reason.</p></div></div>
+    <div class="sl-row"><div class="sl-badge">4</div><div class="sl-row-body"><p class="sl-row-title">Fourth point, in a few words</p><p class="sl-row-text">One supporting sentence that gives the evidence or the reason.</p></div></div>
+  </div>
+</section>
+<section class="slide sl-pad" data-layout="TwoColumnCards">
+  <p class="sl-kicker">Context label</p>
+  <h2 class="sl-title">Two columns and a takeaway</h2>
+  <p class="sl-lead">State the claim of the slide in one sentence. Mark the <span class="sl-accent">key phrase</span>.</p>
+  <div class="sl-cols">
+    <div class="sl-card">
+      <h3>Left column heading</h3>
+      <ul>
+        <li><b>Bold lead-in.</b> Then one short sentence.</li>
+        <li><b>Bold lead-in.</b> Then one short sentence.</li>
+        <li><b>Bold lead-in.</b> Then one short sentence.</li>
+      </ul>
+    </div>
+    <div class="sl-card">
+      <h3>Right column heading</h3>
+      <ul>
+        <li><b>Bold lead-in.</b> Then one short sentence.</li>
+        <li><b>Bold lead-in.</b> Then one short sentence.</li>
+        <li><b>Bold lead-in.</b> Then one short sentence.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="sl-band"><p>The takeaway in one line. <span class="sl-accent">Stress the outcome.</span></p></div>
+</section>
+<section class="slide sl-pad sl-step" data-layout="StepSlide">
+  <div class="sl-head">
+    <div><p class="sl-kicker">Step 1 of 3</p><h2 class="sl-title">Step title</h2></div>
+    <p class="sl-chip">Part 1 of 2: Name</p>
+  </div>
+  <div class="sl-flow">
+    <div class="sl-card"><h3>Input</h3><p>What goes into this step.</p></div>
+    <div class="sl-arrow" role="presentation"></div>
+    <div class="sl-card"><h3>Action</h3><p>What you do in this step.</p></div>
+    <div class="sl-arrow" role="presentation"></div>
+    <div class="sl-card"><h3>Output</h3><p>What this step produces.</p></div>
+  </div>
+  <div class="sl-tag">
+    <svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#d8cdb4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+    <div class="sl-note"><p><b>Tool:</b> Name of the tool</p></div>
+  </div>
+  <div class="sl-tag">
+    <svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#d8cdb4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2z"/></svg>
+    <div class="sl-note burnt"><p><b>Where it helped:</b> First use · Second use · Third use</p></div>
+  </div>
+  <div class="sl-tag">
+    <svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#d8cdb4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-6 7-6s7 2 7 6"/></svg>
+    <div class="sl-note ink"><p><b>Review notes:</b> What you checked and what it changed before you moved on</p></div>
+  </div>
+</section>
+<section class="slide sl-pad" data-layout="NumberedRows" data-variant="References">
+  <p class="sl-kicker">Where the claims come from</p>
+  <h2 class="sl-title">References</h2>
+  <div class="sl-rows compact">
+    <div class="sl-row"><div class="sl-badge">1</div><p class="sl-row-text">Author, “Title of the source,” Publisher, year. <a href="https://example.com" target="_blank" rel="noopener noreferrer">example.com/source-1</a></p></div>
+    <div class="sl-row"><div class="sl-badge">2</div><p class="sl-row-text">Author, “Title of the source,” Publisher, year. <a href="https://example.com" target="_blank" rel="noopener noreferrer">example.com/source-2</a></p></div>
+    <div class="sl-row"><div class="sl-badge">3</div><p class="sl-row-text">Author, “Title of the source,” Publisher, year. <a href="https://example.com" target="_blank" rel="noopener noreferrer">example.com/source-3</a></p></div>
+  </div>
+</section>
+<section class="slide sl-dark sl-cover" data-toc="Closing" data-layout="TitleSlide" data-variant="Closing">
+  <div class="sl-disc big"></div>
+  <div class="sl-disc small"></div>
+  <p class="sl-kicker">Next step</p>
+  <h2 class="sl-display">Questions and discussion</h2>
+  <p class="sl-sub">One line on what you ask the audience to do next.</p>
+  <p class="sl-by"><b>Presenter name</b> · name@example.com</p>
+</section>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer class="bar" aria-label="Slide controls">
+    <button class="btn b-toc" id="tocBtn" type="button" aria-label="Contents" aria-controls="toc" title="Contents (T)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+    </button>
+    <button class="btn b-back" id="backBtn" type="button" aria-label="Back" title="Back (Left arrow)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+    </button>
+    <div class="progress">
+      <div class="track" id="track" role="progressbar" aria-label="Progress" aria-valuemin="0" aria-valuemax="100" title="Click to jump"><span class="fill" id="fill"></span></div>
+      <span class="pct" id="pPct"></span>
+    </div>
+    <button class="btn primary b-next" id="nextBtn" type="button" aria-label="Next" title="Next (Right arrow)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+    <button class="btn b-edit" id="editBtn" type="button" aria-label="Edit slides" aria-pressed="false" title="Edit slides (E)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg>
+    </button>
+    <button class="btn b-fs" id="fsBtn" type="button" aria-label="Full screen" title="Full screen (F)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+    </button>
+  </footer>
+</div>
+<script>
+(function () {
+  function $(id) { return document.getElementById(id); }
+  var deck = $('slides'), frame = $('frame'), stage = $('stage'), toc = $('toc'), tocList = $('tocList');
+  var tocBtn = $('tocBtn'), tocFold = $('tocFold'), backBtn = $('backBtn'), nextBtn = $('nextBtn'), fsBtn = $('fsBtn');
+  var editBtn = $('editBtn'), tools = $('editTools'), dupBtn = $('dupBtn'), delBtn = $('delBtn'), saveBtn = $('saveBtn');
+  var slides = [], tocItems = [], cur = 0, tocOpen = true, editing = false, delTimer = null, tocTimer = null;
+
+  function narrow() { return window.matchMedia('(max-width:900px)').matches; }
+
+  /* scale the 1920x1080 stage to fit */
+  function fit() {
+    var w = stage.clientWidth - 24, h = stage.clientHeight - 24;
+    var s = Math.max(0.05, Math.min(w / 1920, h / 1080));
+    frame.style.width = Math.round(1920 * s) + 'px';
+    frame.style.height = Math.round(1080 * s) + 'px';
+    deck.style.transform = 'scale(' + s + ')';
+  }
+  if (window.ResizeObserver) new ResizeObserver(fit).observe(stage);
+  window.addEventListener('resize', fit);
+
+  function collect() { slides = Array.prototype.slice.call(deck.children).filter(function (n) { return n.classList.contains('slide'); }); }
+  function label(s) {
+    if (s.dataset.toc) return s.dataset.toc;
+    var h = s.querySelector('h1,h2');
+    return h ? h.textContent.trim() : 'Slide';
+  }
+
+  /* contents panel: built from the slides, so edits and new slides show up */
+  function buildToc() {
+    tocList.textContent = ''; tocItems = [];
+    slides.forEach(function (s, i) {
+      if (s.dataset.group) {
+        var g = document.createElement('div');
+        g.className = 'toc-group'; g.textContent = s.dataset.group;
+        tocList.appendChild(g);
+      }
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'toc-item';
+      b.innerHTML = '<span class="n"></span><span class="t"><span class="l"></span><span class="s"></span></span>';
+      b.querySelector('.n').textContent = String(i + 1);
+      b.querySelector('.l').textContent = label(s);
+      var k = s.querySelector('.sl-kicker'), sub = b.querySelector('.s');
+      if (k && k.textContent.trim()) sub.textContent = k.textContent.trim(); else sub.remove();
+      b.addEventListener('click', function () { go(i); if (narrow()) setToc(false); });
+      tocList.appendChild(b);
+      tocItems.push(b);
+    });
+    mark();
+  }
+  function mark() {
+    tocItems.forEach(function (b, k) {
+      b.classList.toggle('done', k < cur);
+      if (k === cur) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
+    });
+    var c = tocItems[cur];
+    if (c && c.scrollIntoView) { try { c.scrollIntoView({ block: 'nearest' }); } catch (e) {} }
+  }
+  function setToc(open) {
+    tocOpen = open; toc.hidden = !open;
+    tocBtn.setAttribute('aria-expanded', String(open));
+    requestAnimationFrame(fit);
+  }
+
+  function go(i) {
+    var n = slides.length;
+    i = Math.max(0, Math.min(n - 1, i)); cur = i;
+    slides.forEach(function (s, k) { s.classList.toggle('on', k === i); s.setAttribute('aria-hidden', k === i ? 'false' : 'true'); });
+    var pct = Math.round((i + 1) / n * 100);
+    $('fill').style.width = pct + '%'; $('pPct').textContent = pct + '%';
+    $('track').setAttribute('aria-valuenow', pct);
+    backBtn.disabled = i === 0; nextBtn.disabled = i === n - 1;
+    mark();
+    try { history.replaceState(null, '', '#slide-' + (i + 1)); } catch (e) {}
+  }
+
+  $('track').addEventListener('click', function (e) {
+    var r = this.getBoundingClientRect();
+    go(Math.round(Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * (slides.length - 1)));
+  });
+  backBtn.addEventListener('click', function () { go(cur - 1); });
+  nextBtn.addEventListener('click', function () { go(cur + 1); });
+  tocBtn.addEventListener('click', function () { setToc(!tocOpen); });
+  tocFold.addEventListener('click', function () { setToc(false); });
+
+  /* full screen */
+  function isFs() { return !!(document.fullscreenElement || document.webkitFullscreenElement); }
+  function toggleFs() {
+    try {
+      if (isFs()) { (document.exitFullscreen || document.webkitExitFullscreen).call(document); }
+      else { var el = document.documentElement, p = (el.requestFullscreen || el.webkitRequestFullscreen).call(el); if (p && p.catch) p.catch(function () {}); }
+    } catch (e) {}
+  }
+  function fsLabel() { var t = isFs() ? 'Exit full screen (F)' : 'Full screen (F)'; fsBtn.title = t; fsBtn.setAttribute('aria-label', t.replace(' (F)', '')); requestAnimationFrame(fit); }
+  document.addEventListener('fullscreenchange', fsLabel);
+  document.addEventListener('webkitfullscreenchange', fsLabel);
+  fsBtn.addEventListener('click', toggleFs);
+
+  /* edit mode: click any text on the slide and type */
+  function setEditable(root, on) {
+    Array.prototype.forEach.call(root.querySelectorAll('h1,h2,h3,p,li'), function (el) {
+      if (on) { el.contentEditable = 'plaintext-only'; if (el.contentEditable !== 'plaintext-only') el.contentEditable = 'true'; }
+      else el.removeAttribute('contenteditable');
+    });
+  }
+  function setEdit(on) {
+    editing = on;
+    if (!on && document.activeElement && deck.contains(document.activeElement)) document.activeElement.blur();
+    setEditable(deck, on);
+    document.body.classList.toggle('editing', on);
+    tools.hidden = !on;
+    editBtn.setAttribute('aria-pressed', String(on));
+    resetDel();
+  }
+  function resetDel() { clearTimeout(delTimer); delTimer = null; delBtn.textContent = 'Delete slide'; }
+  editBtn.addEventListener('click', function () { setEdit(!editing); });
+  deck.addEventListener('click', function (e) { if (editing && e.target.closest && e.target.closest('a')) e.preventDefault(); });
+  deck.addEventListener('input', function () { clearTimeout(tocTimer); tocTimer = setTimeout(buildToc, 300); });
+  dupBtn.addEventListener('click', function () {
+    var s = slides[cur], c = s.cloneNode(true);
+    c.classList.remove('on'); c.removeAttribute('id'); c.removeAttribute('aria-hidden');
+    s.parentNode.insertBefore(c, s.nextSibling);
+    collect(); buildToc(); go(cur + 1);
+  });
+  delBtn.addEventListener('click', function () {
+    if (slides.length < 2) return;
+    if (!delTimer) { delBtn.textContent = 'Click again to delete'; delTimer = setTimeout(resetDel, 3000); return; }
+    resetDel();
+    slides[cur].remove(); collect(); buildToc(); go(Math.min(cur, slides.length - 1));
+  });
+  saveBtn.addEventListener('click', function () {
+    var c = document.documentElement.cloneNode(true), d = c.querySelector('#slides');
+    d.removeAttribute('style');
+    Array.prototype.forEach.call(c.querySelectorAll('[contenteditable]'), function (el) { el.removeAttribute('contenteditable'); });
+    c.querySelector('#frame').removeAttribute('style');
+    c.querySelector('#tocList').textContent = '';
+    c.querySelector('#toc').removeAttribute('hidden');
+    c.querySelector('#fill').removeAttribute('style');
+    c.querySelector('#pPct').textContent = '';
+    c.querySelector('#editTools').hidden = true;
+    c.querySelector('#editBtn').setAttribute('aria-pressed', 'false');
+    c.querySelector('body').classList.remove('editing');
+    Array.prototype.forEach.call(c.querySelectorAll('#slides > .slide'), function (s) { s.classList.remove('on'); s.removeAttribute('aria-hidden'); });
+    var name = (document.title || 'presentation').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'presentation';
+    var blob = new Blob(['<!doctype html>\n' + c.outerHTML], { type: 'text/html' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = name + '.html';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  });
+
+  /* keyboard */
+  document.addEventListener('keydown', function (e) {
+    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    if (editing && deck.contains(e.target)) { if (e.key === 'Escape') e.target.blur(); return; }
+    var el = document.activeElement, onCtl = el && el.tagName === 'BUTTON';
+    switch (e.key) {
+      case 'ArrowRight': case 'PageDown': e.preventDefault(); go(cur + 1); break;
+      case 'ArrowLeft': case 'PageUp': e.preventDefault(); go(cur - 1); break;
+      case ' ': if (!onCtl) { e.preventDefault(); go(cur + (e.shiftKey ? -1 : 1)); } break;
+      case 'Home': e.preventDefault(); go(0); break;
+      case 'End': e.preventDefault(); go(slides.length - 1); break;
+      case 'f': case 'F': toggleFs(); break;
+      case 't': case 'T': setToc(!tocOpen); break;
+      case 'e': case 'E': setEdit(!editing); break;
+      case 'Escape': if (narrow() && tocOpen) setToc(false); break;
+    }
+  });
+  window.addEventListener('hashchange', function () {
+    var m = /^#slide-(\d+)$/.exec(location.hash);
+    if (m) go(parseInt(m[1], 10) - 1);
+  });
+
+  /* start */
+  collect();
+  tocOpen = !narrow(); toc.hidden = !tocOpen;
+  tocBtn.setAttribute('aria-expanded', String(tocOpen));
+  var m = /^#slide-(\d+)$/.exec(location.hash);
+  cur = m ? parseInt(m[1], 10) - 1 : 0;
+  buildToc(); fit(); go(cur); fsLabel();
+})();
+</script>
+</body>
+</html>
