@@ -1,0 +1,28 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><style>
+html,body{margin:0}
+body{width:960px;height:288px;overflow:hidden;background:var(--paper)}
+svg{display:block}
+.ink{fill:var(--ink)}.accent{fill:var(--accent)}.deep{fill:var(--paper-deep)}.grey{fill:var(--grey)}
+.rule{stroke:var(--line);stroke-width:1}
+.name{font:400 64px/.95 var(--font-serif);fill:var(--ink);letter-spacing:-.01em}
+.tag{font:400 14px var(--font-sans);fill:var(--grey)}
+</style></head>
+<body>
+<svg viewBox="0 0 960 288" width="960" height="288" role="img" aria-label="Presentation Template">
+<!-- blocks: paper-deep 560x96, ink 160x96, grey 120x96, accent 120x96 as one top band; name beneath at 64px serif (too wide for the 440px zone)
+     arrangement: a strip of unequal bands bleeding off the top and both sides, like the head of a printed page
+     pattern: a few hairlines, because the system says "hairlines instead of cards" and marks each one with a short accent bar
+     steps and radii: square blocks, since slides use no radius; band height 96; hairlines at the line token, accent mark 64 x 3 like accent-mark -->
+<rect class="deep" x="0" y="0" width="560" height="96"/>
+<rect class="ink" x="560" y="0" width="160" height="96"/>
+<rect class="grey" x="720" y="0" width="120" height="96"/>
+<rect class="accent" x="840" y="0" width="120" height="96"/>
+<line class="rule" x1="0" y1="32.5" x2="560" y2="32.5"/>
+<line class="rule" x1="0" y1="64.5" x2="560" y2="64.5"/>
+<rect class="accent" x="0" y="31" width="64" height="3"/>
+<text class="name" x="32" y="190">Presentation Template</text>
+<text class="tag" x="32" y="232">Editorial slides: serif titles, hairlines instead of cards, one oxblood accent.</text>
+</svg>
+</body></html>
