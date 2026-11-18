@@ -1,0 +1,64 @@
+/* Slide layouts for the 1920 x 1080 stage. Every value reads a token from tokens.css. */
+.slide{position:relative;width:1920px;height:1080px;overflow:hidden;display:flex;flex-direction:column;box-sizing:border-box;font-family:var(--font-sans);color:var(--ink);background:var(--cream);line-height:1.4}
+.slide *{box-sizing:border-box}
+.slide p,.slide h1,.slide h2,.slide h3,.slide ul,.slide ol{margin:0}
+.slide a{color:var(--burnt);text-decoration:underline;text-underline-offset:4px}
+.slide b{font-weight:700}
+
+/* shared text */
+.sl-pad{padding:var(--margin-top) var(--margin-x) var(--margin-bottom);gap:var(--space-16)}
+.sl-kicker{font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--burnt)}
+.sl-title{font-size:56px;font-weight:700;line-height:1.1;color:var(--ink)}
+.sl-lead{font-size:33px;font-weight:600;line-height:1.3;margin-top:var(--space-6);color:var(--ink)}
+.sl-accent{color:var(--burnt)}
+
+/* title, section and closing slides: ink ground */
+.sl-dark{background:var(--ink);color:var(--cream);justify-content:center;padding:var(--margin-cover);gap:36px}
+.sl-dark .sl-kicker{color:var(--yolk)}
+.sl-display{font-size:96px;font-weight:700;line-height:1.1;color:var(--cream);max-width:1100px}
+.sl-sub{font-size:36px;line-height:1.35;color:var(--mist);max-width:1100px}
+.sl-by{font-size:28px;line-height:1.3;color:var(--mist)}
+.sl-by b{font-weight:600;color:var(--cream)}
+.sl-cover{padding-bottom:160px}
+.sl-disc{position:absolute;border-radius:var(--radius-pill)}
+.sl-disc.big{left:1380px;top:320px;width:440px;height:440px;background:var(--cream)}
+.sl-disc.small{left:1520px;top:460px;width:160px;height:160px;background:var(--yolk)}
+.sl-stat{font-size:220px;font-weight:700;line-height:1;color:var(--yolk)}
+
+/* numbered rows */
+.sl-rows{display:flex;flex-direction:column;gap:var(--space-16);flex:1;margin-top:10px}
+.sl-row{display:flex;flex-direction:row;align-items:center;gap:var(--space-28);flex:1;padding:12px var(--space-40);background:var(--paper);border:1px solid var(--sand);border-radius:var(--radius-md)}
+.sl-badge{width:64px;height:64px;flex:none;display:flex;align-items:center;justify-content:center;background:var(--yolk);border-radius:var(--radius-pill);font-size:30px;font-weight:700;color:var(--ink)}
+.sl-row-body{flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--space-6)}
+.sl-row-title{font-size:40px;font-weight:700;line-height:1.2;color:var(--ink)}
+.sl-row-text{font-size:28px;line-height:1.35;color:var(--muted)}
+.sl-rows.compact .sl-row{padding:12px 36px}
+.sl-rows.compact .sl-badge{width:56px;height:56px;font-size:26px}
+.sl-rows.compact .sl-row-text{font-size:26px;color:var(--slate)}
+
+/* cards and closing band */
+.sl-cols{display:flex;flex-direction:row;gap:var(--space-40);align-items:stretch;flex:1;margin-top:10px}
+.sl-card{display:flex;flex-direction:column;flex:1;gap:30px;padding:36px 44px;background:var(--paper);border:1px solid var(--sand);border-radius:var(--radius-md)}
+.sl-card h3{font-size:46px;font-weight:700;line-height:1.2;color:var(--ink)}
+.sl-card ul{padding-left:38px;list-style:disc;display:flex;flex-direction:column;gap:30px}
+.sl-card li{padding-left:4px;font-size:35px;line-height:1.4;color:var(--slate)}
+.sl-band{display:flex;flex-direction:column;justify-content:center;padding:26px 44px;background:var(--ink);border-radius:var(--radius-md)}
+.sl-band p{font-size:38px;font-weight:700;line-height:1.3;color:var(--yolk)}
+.sl-band .sl-accent{color:var(--cream)}
+
+/* step slide: header chip, flow of three cards, note rows */
+.sl-step{padding:40px 64px 44px;gap:14px}
+.sl-head{display:flex;flex-direction:row;align-items:flex-end;justify-content:space-between;gap:32px}
+.sl-head > div{display:flex;flex-direction:column;gap:var(--space-6)}
+.sl-chip{padding:8px 20px;font-size:22px;font-weight:600;color:var(--ink);background:var(--yolk-tint);border:1px solid var(--yolk-edge);border-radius:var(--radius-chip);white-space:nowrap}
+.sl-flow{display:flex;flex-direction:row;align-items:stretch;gap:20px;flex:1;margin:12px 0}
+.sl-flow .sl-card{gap:16px;padding:32px 36px}
+.sl-flow .sl-card h3{font-size:40px}
+.sl-flow .sl-card p{font-size:30px;line-height:1.4;color:var(--slate)}
+.sl-arrow{align-self:center;flex:none;width:56px;height:56px;background:var(--burnt);clip-path:polygon(0 25%,60% 25%,60% 0,100% 50%,60% 100%,60% 75%,0 75%)}
+.sl-tag{display:flex;flex-direction:row;align-items:center;gap:20px}
+.sl-tag svg{flex:none;display:block}
+.sl-note{display:flex;flex-direction:column;flex:1;padding:12px 24px;font-size:22px;line-height:1.4;color:var(--ink);border-left:8px solid var(--yolk);background:var(--yolk-tint);border-radius:var(--radius-sm)}
+.sl-note.burnt{background:var(--burnt-tint);border-left-color:var(--burnt)}
+.sl-note.ink{background:var(--ink-tint);border-left-color:var(--ink)}
+.sl-note p{font-size:22px;line-height:1.4}
